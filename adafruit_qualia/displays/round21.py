@@ -305,6 +305,6 @@ class Round21(DotClockDisplay):
             "pclk_idle_high": False,
         }
 
-        self._touch_driver = TOUCH_CST826
-        self._touch_address = 0x15
+        #self._touch_driver = TOUCH_CST826
+        #self._touch_address = 0x15
         self._round = True
