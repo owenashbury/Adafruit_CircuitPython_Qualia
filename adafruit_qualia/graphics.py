@@ -92,6 +92,8 @@ class Graphics(GraphicsBase):
             debug=debug,
         )
         self.display.rotation = rotation
+        # Remove touch initialization
+        self._touch = None
 
     def init_display(self, display_type: str, *, auto_refresh: bool = True):
         """Load the Display Class, then initialize the display and touch driver"""
@@ -119,17 +121,16 @@ class Graphics(GraphicsBase):
         display_class = getattr(display_class, class_name)
         self._dotclock_display = display_class()  # Instantiate the class
         self._dotclock_display.init(auto_refresh=auto_refresh)  # Initialize the display
-        self._dotclock_display.init_touch()  # Initialize the touch driver
 
     @property
     def i2c_bus(self):
         """Return the I2C bus"""
-        return self._dotclock_display.i2c_bus
+        return None
 
     @property
     def touch(self):
         """Return the touch driver"""
-        return self._dotclock_display.touch
+        return None
 
     @property
     def dotclockdisplay(self):
